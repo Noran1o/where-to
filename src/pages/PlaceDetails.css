@@ -1,0 +1,90 @@
+.details { padding-top: 1.4rem; }
+.back { display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 600; font-size: 0.9rem; color: var(--ink-2); margin-bottom: 1rem; }
+.back:hover { color: var(--ink); }
+
+/* Gallery */
+.gallery { position: relative; display: grid; grid-template-columns: 2fr 1fr; grid-template-rows: 1fr 1fr; gap: 0.6rem; height: clamp(280px, 42vw, 440px); border-radius: var(--radius-lg); overflow: hidden; }
+.gallery .place-img { width: 100%; height: 100%; }
+.g-main { grid-row: 1 / 3; }
+.g-main, .g-side { overflow: hidden; padding: 0; cursor: zoom-in; display: block; width: 100%; height: 100%; }
+.g-main .place-img, .g-side .place-img { transition: transform 0.6s var(--ease); }
+.g-main:hover .place-img, .g-side:hover .place-img { transform: scale(1.04); }
+.g-side .place-img-empty { filter: saturate(0.8) brightness(1.05); }
+.g-side .place-img-empty svg { width: 36px; height: 36px; }
+.g-note { position: absolute; bottom: 14px; inset-inline-start: 14px; pointer-events: none; background: var(--overlay-pill); font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.8rem; border-radius: 999px; }
+
+/* Layout */
+.details-grid { display: grid; grid-template-columns: 1fr 370px; gap: 2.5rem; margin-top: 2rem; align-items: start; }
+.d-tags { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; }
+.d-cat { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.82rem; font-weight: 600; color: var(--accent); background: var(--accent-soft); padding: 0.3rem 0.75rem; border-radius: 999px; }
+.d-title { font-size: clamp(1.9rem, 3.6vw, 2.7rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.15; margin: 0.7rem 0 0.6rem; }
+html[lang='ar'] .d-title { letter-spacing: 0; }
+.d-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 0.92rem; font-weight: 600; }
+.dot { width: 4px; height: 4px; border-radius: 50%; background: var(--line-strong); }
+.d-block { padding: 1.6rem 0; border-bottom: 1px solid var(--line); }
+.d-block:last-child { border-bottom: none; }
+.d-block h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.75rem; }
+.d-desc { font-size: 1.02rem; color: var(--ink-2); line-height: 1.75; }
+.d-two { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.tag { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85rem; font-weight: 500; background: var(--surface); border: 1px solid var(--line); padding: 0.35rem 0.8rem; border-radius: 999px; }
+.map { height: 300px; border-radius: var(--radius); overflow: hidden; background: var(--surface-2); border: 1px solid var(--line); }
+.map iframe { width: 100%; height: 100%; border: 0; }
+
+/* Info card */
+.info-card { position: sticky; top: 90px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 1.4rem; box-shadow: var(--shadow); }
+.info-rows, .info-links { list-style: none; }
+.info-rows { display: grid; gap: 1rem; padding-bottom: 1.2rem; }
+.info-rows li { display: flex; gap: 0.8rem; align-items: start; }
+.info-icon { color: var(--accent); margin-top: 3px; }
+.info-rows small { display: block; font-size: 0.78rem; color: var(--muted); font-weight: 500; }
+.info-rows span, .info-rows a { font-weight: 600; font-size: 0.93rem; }
+.info-rows a:hover { color: var(--accent); }
+
+.info-links { border-top: 1px solid var(--line); padding: 0.7rem 0; }
+.info-links a { display: flex; align-items: center; gap: 0.8rem; padding: 0.6rem 0.5rem; margin-inline: -0.5rem; border-radius: 10px; transition: background 0.15s; }
+.info-links a:hover { background: var(--surface-2); }
+.info-links a > svg:first-child { color: var(--accent); }
+.info-links span { flex: 1; display: flex; flex-direction: column; font-weight: 600; font-size: 0.92rem; line-height: 1.3; min-width: 0; }
+.info-links small { font-weight: 400; color: var(--muted); font-size: 0.78rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; text-align: start; }
+html[dir='rtl'] .info-links small { text-align: right; }
+
+.info-actions { display: grid; gap: 0.6rem; border-top: 1px solid var(--line); padding-top: 1.2rem; }
+.share-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 600; color: var(--muted); padding: 0.4rem; }
+.share-btn:hover { color: var(--ink); }
+
+.top-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+
+@media (max-width: 960px) {
+  .details-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+  .info-card { position: static; }
+  .top-grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .gallery { grid-template-columns: 1fr; grid-template-rows: 1fr; height: 260px; }
+  .g-side { display: none; }
+  .d-two { grid-template-columns: 1fr; }
+  .top-grid-3 { grid-template-columns: 1fr; }
+}
+
+/* Logo next to the name */
+.d-title-row { display: flex; align-items: center; gap: 0.9rem; margin: 0.7rem 0 0.6rem; }
+.d-title-row .d-title { margin: 0; }
+.d-logo { width: 56px; height: 56px; border-radius: 14px; object-fit: cover; border: 1px solid var(--line); background: #fff; flex-shrink: 0; }
+
+/* Branches */
+.branches { list-style: none; display: grid; gap: 0.6rem; }
+.branches li { display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 0.8rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+.branch-pin { width: 34px; height: 34px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; flex-shrink: 0; }
+.branch-name { flex: 1; font-weight: 600; font-size: 0.93rem; }
+.branch-btn { height: 36px; padding: 0 0.9rem; font-size: 0.83rem; }
+
+/* Gallery adapts to the number of photos */
+.gallery.g-count-1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+.gallery.g-count-1 .g-main { grid-row: auto; }
+.gallery.g-count-2 { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr; }
+.gallery.g-count-2 .g-main { grid-row: auto; }
+@media (max-width: 640px) {
+  .gallery.g-count-2 { grid-template-columns: 1fr; }
+  .d-logo { width: 46px; height: 46px; }
+  .branches li { flex-wrap: wrap; }
+}

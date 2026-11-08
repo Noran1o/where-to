@@ -1,0 +1,21 @@
+.spin-head { text-align: center; }
+.spin-layout { padding-bottom: 3rem; display: grid; gap: 2rem; justify-items: center; }
+.spin-filters { display: grid; gap: 0.6rem; justify-items: center; }
+.spin-filters .chip-row { justify-content: center; }
+
+.wheel-area { position: relative; display: grid; justify-items: center; gap: 2rem; }
+.wheel-shadow { width: min(420px, 86vw); aspect-ratio: 1; border-radius: 50%; padding: 12px; background: var(--surface); border: 1px solid var(--line); box-shadow: var(--shadow-lg); }
+.wheel { width: 100%; height: 100%; display: block; }
+.wheel-pointer { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); z-index: 3; width: 0; height: 0; border-inline: 15px solid transparent; border-top: 28px solid var(--ink); filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.25)); }
+.spin-btn { height: 52px; padding: 0 2.4rem; font-size: 1.05rem; }
+.spin-btn:disabled { opacity: 0.7; cursor: wait; }
+
+.winner-backdrop { position: fixed; inset: 0; z-index: 100; background: rgba(15, 20, 25, 0.55); backdrop-filter: blur(6px); display: grid; place-items: center; padding: 1.5rem; }
+.winner-card { position: relative; background: var(--surface); border-radius: var(--radius-lg); padding: 1rem 1rem 1.6rem; text-align: center; width: min(420px, 100%); box-shadow: var(--shadow-lg); }
+.winner-img { height: 190px; border-radius: var(--radius); overflow: hidden; margin-bottom: 1.1rem; }
+.winner-img .place-img { width: 100%; height: 100%; }
+.winner-label { color: var(--accent); font-weight: 700; font-size: 0.85rem; }
+.winner-card h2 { font-size: 1.6rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1.25; padding: 0 0.6rem; }
+.winner-desc { color: var(--muted); margin: 0.5rem 0 1.3rem; padding: 0 0.8rem; font-size: 0.95rem; }
+.winner-actions { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.confetti { position: absolute; top: 40%; left: 50%; font-size: 1.5rem; pointer-events: none; z-index: 2; }

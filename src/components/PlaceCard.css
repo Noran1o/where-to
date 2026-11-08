@@ -1,0 +1,54 @@
+.pcard {
+  position: relative; display: block; overflow: hidden; border-radius: var(--radius-lg);
+  background: var(--surface-2); isolation: isolate;
+}
+.pcard .place-img { width: 100%; height: 100%; position: absolute; inset: 0; transition: transform 0.7s var(--ease); }
+.pcard:hover .place-img { transform: scale(1.05); }
+.place-img { object-fit: cover; }
+.place-img-empty { display: grid; place-items: center; color: rgba(255, 255, 255, 0.55); }
+
+.pcard-top { position: absolute; top: 14px; inset-inline: 14px; display: flex; justify-content: space-between; align-items: center; z-index: 2; }
+.pcard-pill {
+  font-size: 0.75rem; font-weight: 600; color: #fff; padding: 0.3rem 0.75rem; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.2); border: 1px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(8px);
+}
+.pcard-pills { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.fav-btn {
+  width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--overlay-pill); color: var(--ink); transition: color 0.2s, background 0.2s;
+}
+.fav-btn:hover { color: #e5484d; }
+.fav-btn.is-fav { color: #e5484d; }
+
+/* — overlay variant — */
+.pcard-overlay { aspect-ratio: 4 / 4.4; }
+.pcard-overlay::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(10, 14, 18, 0.82) 0%, rgba(10, 14, 18, 0.25) 45%, rgba(10, 14, 18, 0) 70%);
+}
+.pcard-info { position: absolute; inset-inline: 0; bottom: 0; z-index: 2; padding: 1.1rem 1.15rem 1.15rem; color: #fff; }
+.pcard-overlay-row { display: flex; justify-content: space-between; align-items: start; gap: 0.6rem; margin-top: 0.4rem; }
+.pcard-info h3 { font-size: 1.2rem; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
+.pcard-rating { background: var(--overlay-pill); color: var(--ink); padding: 0.15rem 0.5rem; border-radius: 999px; }
+.pcard-rating .rating { font-size: 0.8rem; }
+.pcard-meta { display: flex; align-items: center; gap: 0.3rem; font-size: 0.82rem; opacity: 0.85; margin-top: 0.2rem; }
+.pcard-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.65rem; }
+.pcard-tags span { font-size: 0.72rem; font-weight: 500; padding: 0.2rem 0.6rem; border-radius: 999px; background: rgba(255, 255, 255, 0.16); border: 1px solid rgba(255, 255, 255, 0.22); backdrop-filter: blur(6px); }
+
+/* — float variant (Baksoku style) — */
+.pcard-float { aspect-ratio: 4 / 4.1; }
+.pcard-box {
+  position: absolute; z-index: 2; inset-inline: 14px; bottom: 14px; background: var(--surface);
+  border-radius: var(--radius); padding: 0.95rem 1rem; display: flex; align-items: center; justify-content: space-between; gap: 0.8rem;
+  box-shadow: var(--shadow); transition: transform 0.35s var(--ease);
+}
+.pcard-float:hover .pcard-box { transform: translateY(-4px); }
+.pcard-box h3 { font-size: 1.02rem; font-weight: 700; margin: 0.15rem 0 0.1rem; line-height: 1.3; }
+.pcard-box p { font-size: 0.88rem; color: var(--muted); font-weight: 600; }
+.pcard-arrow {
+  width: 38px; height: 38px; flex-shrink: 0; border-radius: 12px; background: var(--accent); color: #fff;
+  display: grid; place-items: center; transition: transform 0.3s var(--ease);
+}
+.pcard-float:hover .pcard-arrow { transform: translateX(3px); }
+html[dir='rtl'] .pcard-float:hover .pcard-arrow { transform: translateX(-3px); }
+.pcard-demo { position: absolute; z-index: 2; top: 56px; inset-inline-start: 14px; }
